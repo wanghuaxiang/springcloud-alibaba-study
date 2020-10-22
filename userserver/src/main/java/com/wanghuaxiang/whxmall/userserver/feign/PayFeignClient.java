@@ -1,5 +1,6 @@
 package com.wanghuaxiang.whxmall.userserver.feign;
 
+import com.wanghuaxiang.whxmall.userserver.feign.fallbackfactory.PayServerFeignClientFallBackFactory;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Description TODO
  */
 
-@FeignClient(name="pay-server")
+@FeignClient(name="pay-server",fallbackFactory = PayServerFeignClientFallBackFactory.class)
 public interface PayFeignClient {
 
     /**
