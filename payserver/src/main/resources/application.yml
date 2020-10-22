@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  application:
+    name: pay-server
+server:
+  port: 8090
