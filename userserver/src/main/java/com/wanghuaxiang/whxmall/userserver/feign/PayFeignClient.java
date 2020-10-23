@@ -4,6 +4,7 @@ import com.wanghuaxiang.whxmall.userserver.feign.fallbackfactory.PayServerFeignC
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @FeignClient(name="pay-server",fallbackFactory = PayServerFeignClientFallBackFactory.class)
+@RequestMapping("/pay")
 public interface PayFeignClient {
 
     /**
@@ -20,6 +22,6 @@ public interface PayFeignClient {
      * @param money
      * @return String
      */
-    @GetMapping("/pay/wxPay")
+    @GetMapping("/wxPay")
     String wxPay(@RequestParam("money") int money);
 }

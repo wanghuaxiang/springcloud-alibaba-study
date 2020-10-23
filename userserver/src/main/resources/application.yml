@@ -15,3 +15,8 @@ server:
 feign:
   sentinel:
     enabled: true
+
+# 针对pay-server的细粒度负载均衡规则配置
+pay-server:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.wanghuaxiang.whxmall.userserver.loadbalance.NacosWeightedRule
