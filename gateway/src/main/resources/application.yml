@@ -7,15 +7,17 @@ spring:
       discovery:
         server-addr: localhost:8848
     gateway:
-      discovery:
-        locator:
-          enabled: true
+      #打开这个配置则注册到nacos的服务都能通过http://gateway-uri/pay-server/**的形式访问
+#      discovery:
+#        locator:
+#          enabled: true
       routes:
         - id: pay-server
           uri: lb://pay-server
           predicates:
             - Path=/pay/**
-          #这样会把pay去掉，也就是访问http://gateway-uri/pay/needPay/wxPay时会转发至http://pay-server/needPay/wxPay
+          #这样会把pay去掉，也就是访问http://gateway-uri/pay/needPay/wxPay时会转发至http://gateway-uri/pay-server/needPay/wxPay
+          #否则将转发至http://gateway-uri/pay-server/pay/needPay/wxPay
           filters:
             - StripPrefix=1
 
