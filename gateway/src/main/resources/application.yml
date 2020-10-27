@@ -1,0 +1,23 @@
+server:
+  port: 8010
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: pay-server
+          uri: lb://pay-server
+          predicates:
+            - Path=/pay/**
+          #这样会把pay去掉，也就是访问http://gateway-uri/pay/needPay/wxPay时会转发至http://pay-server/needPay/wxPay
+          filters:
+            - StripPrefix=1
+
+  application:
+    name: gateway

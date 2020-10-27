@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @FeignClient(name="pay-server",fallbackFactory = PayServerFeignClientFallBackFactory.class)
-@RequestMapping("/pay")
+@RequestMapping("/needPay")
 public interface PayFeignClient {
 
     /**

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description 支付管理
  */
 @RestController
-@RequestMapping("/pay")
+@RequestMapping("/needPay")
 public class PayController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
