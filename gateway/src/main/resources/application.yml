@@ -1,25 +1,21 @@
-server:
-  port: 8010
-
-spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-    gateway:
-      #´ò¿ªÕâ¸öÅäÖÃÔò×¢²áµ½nacosµÄ·şÎñ¶¼ÄÜÍ¨¹ıhttp://gateway-uri/pay-server/**µÄĞÎÊ½·ÃÎÊ
+#spring:
+#  cloud:
+#    nacos:
 #      discovery:
-#        locator:
-#          enabled: true
-      routes:
-        - id: pay-server
-          uri: lb://pay-server
-          predicates:
-            - Path=/pay/**
-          #ÕâÑù»á°ÑpayÈ¥µô£¬Ò²¾ÍÊÇ·ÃÎÊhttp://gateway-uri/pay/needPay/wxPayÊ±»á×ª·¢ÖÁhttp://gateway-uri/pay-server/needPay/wxPay
-          #·ñÔò½«×ª·¢ÖÁhttp://gateway-uri/pay-server/pay/needPay/wxPay
-          filters:
-            - StripPrefix=1
+#        server-addr: localhost:8848
+#    gateway:
+#      #æ‰“å¼€è¿™ä¸ªé…ç½®åˆ™æ³¨å†Œåˆ°nacosçš„æœåŠ¡éƒ½èƒ½é€šè¿‡http://gateway-uri/pay-server/**çš„å½¢å¼è®¿é—®
+#      #      discovery:
+#      #        locator:
+#      #          enabled: true
+#      routes:
+#        - id: pay-server
+#          uri: lb://pay-server
+#          predicates:
+#            - Path=/pay/**
+#          #è¿™æ ·ä¼šæŠŠpayå»æ‰ï¼Œä¹Ÿå°±æ˜¯è®¿é—®http://gateway-uri/pay/needPay/wxPayæ—¶ä¼šè½¬å‘è‡³http://gateway-uri/pay-server/needPay/wxPay
+#          #å¦åˆ™å°†è½¬å‘è‡³http://gateway-uri/pay-server/pay/needPay/wxPay
+#          filters:
+#            - StripPrefix=1
 
-  application:
-    name: gateway
+

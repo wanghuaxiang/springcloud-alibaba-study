@@ -1,0 +1,16 @@
+server:
+  port: 8010
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+  #这个配置会到nacos配置中心找到gateway-dev.yaml和gateway.yaml这两个文件
+  #gateway相关配置在nacos上修改是会自动刷新的，自定义的配置要实现实时刷新需要在类上加@RefreshScope
+  application:
+    name: gateway
+  profiles:
+    active: dev
+
